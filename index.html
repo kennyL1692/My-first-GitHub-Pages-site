@@ -15,10 +15,16 @@
     h1 {
       font-size: 4rem;
       font-weight: 900;
-      background: linear-gradient(90deg, #ff4e50, #f9d423, #00c9ff, #92fe9d);
+      background: linear-gradient(90deg, #ff4e50, #f9d423, #00c9ff, #92fe9d, #ff4e50);
+      background-size: 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: shift 3s linear infinite;
+    }
+    @keyframes shift {
+      0%   { background-position: 0% }
+      100% { background-position: 100% }
     }
     p {
       font-size: 1.5rem;
@@ -32,6 +38,6 @@
 </head>
 <body>
   <h1>Hello, world!</h1>
-  <p>My first GitHub Pages site.</p>
+  <p>My first GitHub and Cloudflare Pages site.</p>
 </body>
 </html>

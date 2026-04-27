@@ -4,26 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Site</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg:       #1a1028;
-      --surface:  #231838;
-      --border:   #3d2657;
-      --pink:     #ff79c6;
-      --purple:   #bd93f9;
-      --mint:     #8be9fd;
-      --yellow:   #f1fa8c;
-      --comment:  #6272a4;
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'JetBrains Mono', monospace;
-      background: var(--bg);
+      background: #0a0a0a;
+      color: #e0e0e0;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -31,99 +19,52 @@
       padding: 2rem;
     }
 
-    .window {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+    .terminal {
       width: 100%;
-      max-width: 680px;
-      box-shadow: 0 0 60px #bd93f930, 0 0 120px #ff79c610;
-      overflow: hidden;
+      max-width: 600px;
     }
 
-    .titlebar {
-      background: #2a1f40;
-      border-bottom: 1px solid var(--border);
-      padding: 0.75rem 1rem;
+    .prompt {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
+    .prompt-symbol {
+      color: #ff79c6;
+      font-weight: 700;
+      font-size: 1rem;
     }
-    .dot.red    { background: #ff5f57; }
-    .dot.yellow { background: #ffbd2e; }
-    .dot.green  { background: #28c840; }
-
-    .filename {
-      margin-left: 0.75rem;
-      font-size: 0.75rem;
-      color: var(--comment);
-      letter-spacing: 0.05em;
-    }
-
-    .code {
-      padding: 2rem 2rem 2.5rem;
-    }
-
-    .line {
-      display: flex;
-      align-items: baseline;
-      gap: 1.5rem;
-      line-height: 1.9;
-    }
-
-    .ln {
-      color: var(--comment);
-      font-size: 0.8rem;
-      user-select: none;
-      min-width: 1.2rem;
-      text-align: right;
-    }
-
-    .token-keyword  { color: var(--pink);   font-weight: 700; }
-    .token-fn       { color: var(--purple); font-weight: 700; }
-    .token-string   { color: var(--yellow); }
-    .token-comment  { color: var(--comment); font-style: italic; }
-    .token-punct    { color: #ccc; }
 
     h1 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
       display: inline;
-      font-size: 1.6rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, var(--pink), var(--purple), var(--mint), var(--pink));
-      background-size: 250%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 4s linear infinite;
     }
 
-    p.subtitle {
-      display: inline;
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--yellow);
+    .output {
+      padding-left: 1.25rem;
+      border-left: 2px solid #222;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #888;
+      line-height: 1.8;
     }
 
     .cursor {
       display: inline-block;
-      width: 2px;
-      height: 1.1em;
-      background: var(--pink);
-      margin-left: 2px;
-      vertical-align: middle;
+      width: 8px;
+      height: 1em;
+      background: #e0e0e0;
+      margin-left: 3px;
+      vertical-align: text-bottom;
       animation: blink 1s step-end infinite;
     }
 
-    @keyframes shimmer {
-      0%   { background-position: 0% }
-      100% { background-position: 100% }
-    }
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50%       { opacity: 0; }
@@ -131,48 +72,13 @@
   </style>
 </head>
 <body>
-  <div class="window">
-    <div class="titlebar">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-      <span class="filename">hello.js</span>
+  <div class="terminal">
+    <div class="prompt">
+      <span class="prompt-symbol">~$</span>
+      <h1>Hello, world!</h1>
     </div>
-    <div class="code">
-      <div class="line">
-        <span class="ln">1</span>
-        <span class="token-comment">// welcome to my corner of the internet</span>
-      </div>
-      <div class="line">
-        <span class="ln">2</span>
-        <span></span>
-      </div>
-      <div class="line">
-        <span class="ln">3</span>
-        <span>
-          <span class="token-keyword">const </span><span class="token-fn">greet</span><span class="token-punct"> = () =&gt; </span><span class="token-punct">{</span>
-        </span>
-      </div>
-      <div class="line">
-        <span class="ln">4</span>
-        <span>
-          &nbsp;&nbsp;<span class="token-keyword">return </span><h1>"Hello, world!"</h1>
-        </span>
-      </div>
-      <div class="line">
-        <span class="ln">5</span>
-        <span class="token-punct">}</span>
-      </div>
-      <div class="line">
-        <span class="ln">6</span>
-        <span></span>
-      </div>
-      <div class="line">
-        <span class="ln">7</span>
-        <span>
-          <span class="token-fn">console</span><span class="token-punct">.</span><span class="token-fn">log</span><span class="token-punct">(</span><p class="subtitle">"My first GitHub and Cloudflare Pages site."</p><span class="token-punct">)</span><span class="cursor"></span>
-        </span>
-      </div>
+    <div class="output">
+      <p>My first GitHub and Cloudflare Pages site.<span class="cursor"></span></p>
     </div>
   </div>
 </body>
